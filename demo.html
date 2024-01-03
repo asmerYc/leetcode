@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/6.10.3/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.0.2/antd.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/3.0.2/antd.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+
+        class App extends React.Component {
+            state = {
+                date: null,
+            };
+            
+            handleChange = date => {
+                antd.message.info(`您选择的日期是: ${date ? date.format('YYYY-MM-DD') : '未选择'}`);
+                this.setState({ date });
+            };
+            render() {
+                const { date } = this.state;
+                return (
+                    <div style={{ width: 400, margin: '100px auto' }}>
+                        <antd.DatePicker onChange={this.handleChange} />
+                        <div style={{ marginTop: 20 }}>
+                            当前日期：{date ? date.format('YYYY-MM-DD') : '未选择'}
+                        </div>
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(<App />,document.getElementById("root"));
+    </script>
+</body>
+</html>

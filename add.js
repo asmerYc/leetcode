@@ -25,9 +25,24 @@ const twoSum = (nums, target) => {
         for(let j = i +1 ; j < nums.length; j++) {
             if(nums[i] + nums[j] === target) {
                 return [i , j]
+                break;
             }
         }
     }
 };
 console.log(twoSum([2,7,11,15], 9))
 console.log(twoSum2([2,7,11,15], 9))
+
+const twoSum3 = (arr, target) => {
+    let objNum = {};
+    for(let i =0; i< arr.length;i++) {
+        const curNum = arr[i];
+        const targetNum = target - curNum;
+        const targetNumIndex = objNum[targetNum];
+        if(targetNumIndex !== undefined) {
+            return [targetNumIndex, i];
+        } else {
+            objNum[curNum] = i;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person {
+            constructor(name,age){
+                // 构造器的this 指的就是 当前类的实例对象
+                this.name = name;
+                this.age = age;
+            }
+
+            // 一般方法
+            speak() {
+                console.log(`My name is ${this.name},my age is ${this.age}`);
+            }
+        }
+
+        // class extend  we can create a class to extend person
+
+        class Student extends Person {
+            constructor(name,age,grade){
+                super(name, age)
+                this.grade = grade;
+            }
+        }
+
+        const s1 = new Student('xiaozhang', 15, 8);
+
+
+        const p1 = new Person('zhangsan', 18);
+        const p2 = new Person('lisi', 19);
+        p1.speak();
+        p2.speak();
+        s1.speak();
+        console.log(p1)
+        console.log(p2)
+        console.log(s1)
+    </script>
+</body>
+</html>

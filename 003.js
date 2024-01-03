@@ -29,54 +29,81 @@
 //     return maxLength;
 // };
 
+var s = "abcabcbb";
+// var s = "bbbbb";
+// var s = "pwwkew";
 
+const lengthOfLongestSubstring = (s) => {
+    let maxLength = 0;
+    let left = 0;
+    let charIndexMap = {};
+  
+    for (let right = 0; right < s.length; right++) {
+      const currentChar = s[right];
+  
+      if (charIndexMap[currentChar] !== undefined && charIndexMap[currentChar] >= left) {
+        console.log(left, 'left-->before')
+        left = charIndexMap[currentChar] + 1;
+        console.log(left, 'left-->later');
+      }
 
-// const lengthOfLongestSubstring = (s) => {
-//     let maxLength = 0;
-//     let left = 0;
-//     let charIndexMap = {};
   
-//     for (let right = 0; right < s.length; right++) {
-//       const currentChar = s[right];
+      charIndexMap[currentChar] = right;
+      console.log(charIndexMap, 'charIndexMap');
+      maxLength = Math.max(maxLength, right - left + 1);
+    }
   
-//       if (charIndexMap[currentChar] !== undefined && charIndexMap[currentChar] >= left) {
-//         left = charIndexMap[currentChar] + 1;
-//       }
-  
-//       charIndexMap[currentChar] = right;
-//       maxLength = Math.max(maxLength, right - left + 1);
-//     }
-  
-//     return maxLength;
-//   };
-  
+    return maxLength;
+  };
+  console.log(lengthOfLongestSubstring(s))
 
 //   const exampleString = "abcabcbb";
 //   const result = lengthOfLongestSubstring(exampleString);
 //   console.log(result); 
 
 // mySelf
-var lengthOfLongestSubstring = function(s) {
-    let maxLength = 0;
+// var lengthOfLongestSubstring = function(s) {
+//     let maxLength = 0;
 
-    for (let i = 0; i < s.length; i++) {
-        let charArray = [];
+//     for (let i = 0; i < s.length; i++) {
+//         let charArray = [];
+//         for (let j = i; j < s.length; j++) {
+//             const currentChar = s[j];
+//             console.log(currentChar, 'currentChar++');
 
-        for (let j = i; j < s.length; j++) {
-            const currentChar = s[j];
+//             if (charArray.indexOf(currentChar) === -1) {
+//                 charArray.push(currentChar);
+//                 maxLength = Math.max(maxLength, charArray.length);
+//             } else {
+//                 break; 
+//             }
+//         }
+//     }
 
-            if (charArray.indexOf(currentChar) === -1) {
-                charArray.push(currentChar);
-                maxLength = Math.max(maxLength, charArray.length);
-            } else {
-                break; // 如果出现重复字符，退出内层循环
-            }
-        }
-    }
+//     return maxLength;
+// };
+// console.log(lengthOfLongestSubstring("12312"))
 
-    return maxLength;
-};
 
-var s = "abcabcbb";
-var s = "bbbbb";
-var s = "pwwkew";
+
+// var lengthOfLongestSubstring = (s) => {
+//     let maxLength = 0;
+//     for(let i=0; i< s.length;i++) {
+//         //第一步先创建一个数组，存储已经存在的值
+//         let uniqueArr = [];
+//         console.log(uniqueArr, 'uniqueArr');
+//         for(let j=i; j<s.length;j++) {
+//             const currentChar =  s[j];
+//             if(uniqueArr.indexOf(currentChar) === -1) {
+//                 uniqueArr.push(currentChar);
+//                 console.log(uniqueArr, 'uniqueArr');
+//                 maxLength = Math.max(maxLength, uniqueArr.length);
+//             } else {
+//                 break;
+//             }
+//         } 
+//     }
+//     return maxLength;
+// }
+// console.log(lengthOfLongestSubstring('abcabcbb'))
+// console.log(lengthOfLongestSubstring('bbbbb'))
