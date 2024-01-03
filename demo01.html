@@ -108,29 +108,34 @@ const datas =[
         }
     ]
         const App = () => {
-            const [date, setDate] = React.useState(null);
+            const [data, setData] = React.useState([]);
+            const [loading, setLoading] = React.useState(true); 
             React.useEffect(() => {
 
-        axios.get('https://api.example.com/data')
+        axios.get('https://localhost:5001/api/Companion/getPolicyEmailHistory?PolicyNumber=LRUEF1021Z', {
+          headers: {
+    'XApiKey': 'cD1ef8d4-435e-4f66-9c7d-436a8a2b001f', // 
+
+  }
+        })
             .then(response => {
+              console.log(response, 'response');
         
-                setData(response.data);
+              const newData = response.data.result.map((item,index) => ({
+                ...item,
+                key:String(index + 1),
+              }))
+                setData(newData);
             })
             .catch(error => {
             
                 console.error('Error fetching data:', error);
             });
     }, []);
-
-            const handleChange = date => {
-                antd.message.info(`您选择的日期是: ${date ? date.format('YYYY-MM-DD') : '未选择'}`);
-                setDate(date);
-            };
-
             return (
                 <div style={{ width: 'auto', margin: '50px' }}>
                     <div style={{fontSize:'20px', marginBottom: '20px'}}>Email Information</div>
-                    <antd.Table columns={columns} dataSource={datas} />
+                    <antd.Table columns={columns} dataSource={data} />
                 </div>
             );
         }

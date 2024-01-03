@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Class review</title>
+</head>
+<body>
+    <script>
+        class Person {
+            constructor(name,age) {
+                this.name = name;
+                this.age = age;
+            }
+            speak() {
+                console.log('as a person, i can speak!!')
+            }
+        }
+
+        const p1 = new Person('zhangsan', 18);
+        const x = p1.speak;
+        x();
+        p1.speak();
+        console.log(this, 'this');
+        console.log(p1)
+
+        class Car  {
+            // Assignment statements can be written in a class
+            wheel = 4;
+            constructor(name,price) {
+                this.name = name;
+                this.price = price;
+                this.wheel = 4;
+            }
+        }
+        const c1 = new Car('Benz',300000);
+        console.log(c1)
+    </script>
+</body>
+</html>
