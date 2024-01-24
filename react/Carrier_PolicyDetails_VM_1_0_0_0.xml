@@ -1,0 +1,123 @@
+<ManuScript>
+  <properties manuscriptID="Carrier_PolicyDetails_VM_1_0_0_0" versionID="Carrier_PolicyDetails_VM_1_0_0_0" versionDate="2016-09-20" version="1" boolean="1" fieldCache="1" shortCircuitCond="1" cultureCode="en-US" cultureName="English (United States)" multiLanguages="1" caption="Carrier_PolicyDetails_VM_1_0_0_0" inherited="DuckCreekTech_PolicyDetails_VM_1_0_0_0" image="" usePersistedState="0" dataSchema="">
+    <contexts />
+    <notes />
+    <keys>
+      <keyInfo name="lob" value="CarrierAdmin" />
+      <keyInfo name="state" value="PolicyDetails" />
+      <keyInfo name="effectiveDateNew" value="2016-01-01" />
+      <keyInfo name="effectiveDateRenewal" value="2016-01-01" />
+      <keyInfo name="masterID" value="Admin" />
+      <keyInfo name="productCode" value="System" />
+      <keyInfo name="family" value="DCTSystem" />
+      <keyInfo name="version" value="1_0_0_0" />
+      <keyInfo name="currencyCodes" value="EUR,USD" />
+      <keyInfo name="cultures" value="en-US,de-DE,it-IT" />
+    </keys>
+  </properties>
+  <model>
+    <object id="_PolicyDetails" abstract="1">
+      <table id="ApplicationInformation" tableType="local" separator="," override="1">
+        <fields>
+          <field type="int" name="ManuscriptId" />
+          <field type="int" name="ModelCollection" />
+          <field type="int" name="ViewModel" />
+          <field type="int" name="View" />
+        </fields>
+        <rowKeys name="Name" type="string" find="eq">
+          <key value="PolicyDetails" />
+          <key value="ApplicationNotes" />
+          <key value="ApplicationNotifications" />
+          <key value="ApplicationTasks" />
+          <key value="ApplicationAttachments" />
+          <key value="ClientInformation" />
+          <key value="MyTasks" />
+          <key value="TaskManagement" />
+          <key value="Notes" />
+          <key value="Notifications" />
+          <key value="Attachments" />
+          <key value="ModelCollectionMaster" />
+        </rowKeys>
+        <data>
+          <row value="Carrier_PolicyDetails_VM_1_0_0_0,MainInterview,PolicyDetails,DuckCreekTech_PolicyDetails_VM_1_0_0_0_MainInterview_PolicyDetails_View" />
+          <row value="Carrier_Notes_VM_1_0_0_0,ApplicationNotes,ApplicationNotes,DuckCreekTech_Notes_VM_1_0_0_0_ApplicationNotes_ApplicationNotes_View" />
+          <row value="Carrier_Notifications_VM_1_0_0_0,ApplicationNotifications,ApplicationNotifications,DuckCreekTech_Notifications_VM_1_0_0_0_ApplicationNotifications_ApplicationNotifications_View" />
+          <row value="Carrier_Tasks_VM_1_0_0_0,ApplicationTasks,ApplicationTasks,DuckCreekTech_Tasks_VM_1_0_0_0_ApplicationTasks_ApplicationTasks_View" />
+          <row value="Carrier_Attachments_VM_1_0_0_0,ApplicationAttachments,ApplicationAttachments,Carrier_Attachments_VM_1_0_0_0_ApplicationAttachments_ApplicationAttachments_View" />
+          <row value="Carrier_ClientInformation_VM_1_0_0_0,MainInterview,ClientInformation,DuckCreekTech_ClientInformation_VM_1_0_0_0_MainInterview_ClientInformation_View" />
+          <row value="Carrier_Tasks_VM_1_0_0_0,MainInterview,MyTasks,DuckCreekTech_Tasks_VM_1_0_0_0_MainInterview_MyTasks_View" />
+          <row value="Carrier_Tasks_VM_1_0_0_0,MainInterview,TaskManagement,DuckCreekTech_Tasks_VM_1_0_0_0_MainInterview_TaskManagement_View" />
+          <row value="Carrier_Notes_VM_1_0_0_0,MainInterview,Notes,DuckCreekTech_Notes_VM_1_0_0_0_MainInterview_Notes_View" />
+          <row value="Carrier_Notifications_VM_1_0_0_0,MainInterview,Notifications,DuckCreekTech_Notifications_VM_1_0_0_0_MainInterview_Notifications_View" />
+          <row value="Carrier_Attachments_VM_1_0_0_0,MainInterview,Attachments,DuckCreekTech_Attachments_VM_1_0_0_0_MainInterview_Attachments_View" />
+          <row value="Carrier_ProductBase_Workflow_VM_3_0_0_0,ModelCollectionMasterNonProduct,ModelCollectionMaster,DCT_ProductBase_Workflow_VM_3_0_0_0_ModelCollectionMasterNonProduct_ModelCollectionMaster_View" />
+        </data>
+      </table>
+      <object id="Details" abstract="1">
+        <object id="DetailsInput" abstract="1">
+          <object id="Policy" abstract="1">
+            <object id="PolicyInput" abstract="1">
+              <public id="PolicyInput.HeadLessProducer" path="HeadLessProducer" type="string">
+                <definition>
+                  <caption value="Policy Input Head Less Producer" />
+                </definition>
+                <rules>
+                  <value>
+                    <request verb="Session.getElementRq" get="@value">
+                      <responsePath value="" />
+                      <onFailure idref="PolicyInput.Producer" />
+                      <modifySession value="" />
+                      <usesSession value="" />
+                      <default value="" />
+                      <nameValues>
+                        <nameValue value="data/policy/ProducerID" name="path" dataType="attribute" />
+                      </nameValues>
+                    </request>
+                  </value>
+                </rules>
+              </public>
+              <public id="PolicyInput.Producer" path="producer" type="string" override="1">
+                <definition>
+                  <caption value="Producer:" />
+                </definition>
+                <rules>
+                  <value idref="PolicyInput.HeadLessProducer" />
+                </rules>
+              </public>
+            </object>
+            <object id="PolicyPrivate" abstract="1">
+              <private id="PolicyPrivate.HeadlessIndicator" type="boolean" comment="" path="HeadlessIndicator">
+                <value>
+                  <request verb="Session.getElementRq" get="@value">
+                    <responsePath value="" />
+                    <onFailure idref="False" />
+                    <modifySession value="" />
+                    <usesSession value="" />
+                    <default value="" />
+                    <nameValues>
+                      <nameValue value="data/account/HeadlessIndicator" name="path" dataType="attribute" />
+                    </nameValues>
+                  </request>
+                </value>
+              </private>
+            </object>
+          </object>
+        </object>
+      </object>
+    </object>
+  </model>
+  <revisions />
+  <modelCollections>
+    <modelCollection name="MainInterview" abstract="1">
+      <viewModel name="PolicyDetails" caption="Policy Details" prevPage="" viewRef="PolicyDetails.View" abstract="1">
+        <group id="_PolicyDetails" objectRef="_PolicyDetails" iterMax="*" iterStep="1" abstract="1">
+          <group id="Details" iterMax="*" iterStep="1" objectRef="Details" abstract="1">
+            <group id="Policy" iterMax="*" iterStep="1" objectRef="Policy" abstract="1">
+              <field id="PolicyInput.Producer" idref="PolicyInput.Producer" readOnlyRef="True" compute="1" override="1" />
+            </group>
+          </group>
+        </group>
+      </viewModel>
+    </modelCollection>
+  </modelCollections>
+</ManuScript>
