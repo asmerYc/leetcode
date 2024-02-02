@@ -25,6 +25,7 @@ class ListNode {
   
   const addTwoNumbers = (l1, l2) => {
     let dummyHead = new ListNode(0);
+    console.log(dummyHead, 'dummyHead');
     let current = dummyHead;
     let carry = 0;
   
@@ -37,12 +38,10 @@ class ListNode {
   
       current.next = new ListNode(sum % 10);
       current = current.next;
-        console.log(current, 'current');
-        console.log(current.next, 'current.next');
       if (l1) l1 = l1.next;
       if (l2) l2 = l2.next;
     }
-  
+    console.log(dummyHead, 'dummyHead');
     return dummyHead.next;
   };
   

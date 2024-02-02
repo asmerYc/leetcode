@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="luxon.min.js"></script>
+<body>
+    
+</body>
+<script>
+    var DateTime = luxon.DateTime;
+    const nowUtc = DateTime.utc();
+
+// 获取当前天的开始日期和结束日期
+const startOfToday = nowUtc.startOf('day');
+const endOfToday = nowUtc.endOf('day');
+
+console.log('Start of today:', startOfToday.toISO());
+console.log('End of today:', endOfToday.toISO());
+</script>
+</html>

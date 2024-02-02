@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="luxon.min.js"></script>
+<body>
+    
+</body>
+<script>
+    var DateTime = luxon.DateTime;
+// 获取当前的 UTC 时间
+const nowUtc = DateTime.utc();
+console.log(nowUtc, 'nowUtc');
+console.log(nowUtc.toISO(), 'nowUtc');
+
+// 获取当前天所在的周的开始日期和结束日期
+const startOfThisWeek = nowUtc.startOf('week');
+const endOfThisWeek = nowUtc.endOf('week');
+
+// 获取过去一周的开始日期和结束日期
+const startOfLastWeek = startOfThisWeek.minus({ weeks: 1 });
+const endOfLastWeek = endOfThisWeek.minus({ weeks: 1 });
+
+console.log('Start of last week:', startOfLastWeek.toISO());
+console.log('End of last week:', endOfLastWeek.toISO());
+</script>
+</html>

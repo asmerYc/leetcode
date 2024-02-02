@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="luxon.min.js"></script>
+<body>
+    
+</body>
+<script>
+    var DateTime = luxon.DateTime;
+// 获取当前的 UTC 时间
+// 获取当前的 UTC 时间
+console.log(DateTime.now(), 'now++++');
+console.log(DateTime.local(), 'local++++');
+const nowUtc = DateTime.utc();
+
+// 获取过去一天的开始日期和结束日期
+const startOfYesterday = nowUtc.minus({ days: 1 }).startOf('day');
+const endOfYesterday = nowUtc.minus({ days: 1 }).endOf('day');
+
+console.log('Start of yesterday:', startOfYesterday.toISO());
+console.log('End of yesterday:', endOfYesterday.toISO());
+</script>
+</html>
