@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="luxon.min.js"></script>
+<body>
+    
+</body>
+<script>
+    var DateTime = luxon.DateTime;
+    const dt = DateTime.local(2017, 5, 15, 8, 30);
+    console.log(dt.toISO(), 'toISO+++')
+    console.log(dt.toString(), 'toString+++')
+    console.log(dt.year, 'year+++')
+    console.log(dt.month, 'month+++')
+    console.log(dt.day, 'day+++')
+</script>
+</html>

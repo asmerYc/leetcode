@@ -21,7 +21,15 @@ const nowUtc = DateTime.utc();
 const startOfYesterday = nowUtc.minus({ days: 1 }).startOf('day');
 const endOfYesterday = nowUtc.minus({ days: 1 }).endOf('day');
 
+const startOfToday = nowUtc.startOf('day');
+const endOfToday = nowUtc.endOf('day');
+
 console.log('Start of yesterday:', startOfYesterday.toISO());
 console.log('End of yesterday:', endOfYesterday.toISO());
+
+console.log('Start of today:', startOfToday.toISO());
+console.log('End of today:', endOfToday.toISO());
+
+console.log('UTC:', nowUtc.toISO());
 </script>
 </html>

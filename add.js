@@ -46,3 +46,40 @@ const twoSum3 = (arr, target) => {
         }
     }
 }
+
+
+const originData = {
+  day_trips:[
+    {
+      date_id: "2024-02-27",
+      trip_metrics:{active_users:0},
+      trips:[
+        {
+          encoded_polyline: "qw`cF|slgV??",
+          include_route: true,
+      },
+      ]
+    },
+  ]
+}
+
+const formatData = {
+  day_trips:[
+    {
+      date_id: "2024-02-27",
+      trip_metrics:{active_users:0},
+      trips:[
+        {
+          route: {
+            type:'Feature',
+            geometry:{
+              type:"LineString",
+              coordinates:decode(encoded_polyline)
+            }
+          },
+          include_route: true,
+      },
+      ]
+    },
+  ]
+}
