@@ -1,0 +1,17 @@
+<!-- <div onclick="console.log('first div', event.target)">
+    <div onclick="console.log('second div', event.target)">
+      <button onclick="console.log('button', event.target)">
+        Click!
+      </button>
+    </div>
+  </div> -->
+
+  <div onclick="console.log('first div')">
+    <div onclick="console.log('second div')">
+      <button onclick="console.log('button'); event.stopPropagation();">
+        Click!
+      </button>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Column Layout</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+
+        .left {
+            width: 30%;
+            background-color: #f0f0f0;
+        }
+
+        .right {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .top,
+        .bottom {
+            flex: 1;
+        }
+
+        .top {
+            background-color: #d0e0f0;
+            position: relative;
+        }
+
+        .bottom {
+            background-color: #b0c0d0;
+            position: relative;
+        }
+
+        .divider {
+            position: absolute;
+            top: 50%;
+            left: -5%;
+            width: 110%; /* Ensure the divider extends across both left and right sections */
+            height: 5px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <!-- Left content goes here -->
+        </div>
+        <div class="right">
+            <div class="top">
+                <!-- Top right content goes here -->
+                <div class="divider"></div>
+            </div>
+            <div class="bottom">
+                <!-- Bottom right content goes here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

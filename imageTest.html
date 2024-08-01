@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+           height: 100vh;
+           width: 100%;
+           display: flex;
+        }
+        .leftContainer {
+            flex: 20%;
+            height: 100%;
+            background-color: #fff;
+        }
+        .rightContainer {
+            flex: 80%;
+            display: flex;
+            height: 100%;
+        }
+        .r-l-content {
+            flex:40%;
+            background-color: yellow;
+            height: 100%;
+        }
+        .r-r-content {
+            flex:60%;
+            background-image: url('./background.png');
+            background-size: auto 100%; /* 保持图片高度适应容器高度，宽度自动调整 */
+            background-position: center right; /* 图片在容器右侧居中对齐 */
+            background-repeat: no-repeat; /* 图片不重复 */
+            height: 100%;
+            overflow: hidden; /* 超出容器的部分隐藏 */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="leftContainer"></div>
+        <div class="rightContainer">
+            <div class="r-l-content"></div>
+            <div class="r-r-content"></div>
+        </div>
+    </div>
+</body>
+</html>
